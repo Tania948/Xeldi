@@ -1,0 +1,40 @@
+# Maintainer: Tania948 <https://github.com/Tania948>
+# Uso:  cd packaging/arch && makepkg -si
+pkgname=xeldi-git
+_pkgname=xeldi
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="Editor de pixel art 2D con construccion 3D en voxeles, onion skin y preview idle"
+arch=('x86_64' 'aarch64')
+url="https://github.com/Tania948/xeldi"
+license=('MIT')
+depends=('qt6-base' 'zlib' 'hicolor-icon-theme' 'shared-mime-info' 'desktop-file-utils')
+makedepends=('git' 'cmake' 'ninja' 'nlohmann-json')
+provides=('xeldi')
+conflicts=('xeldi')
+install=xeldi.install
+source=("${_pkgname}::git+${url}.git")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd "${_pkgname}"
+  local base
+  base=$(grep -oP 'project\(Xeldi VERSION \K[0-9.]+' CMakeLists.txt)
+  printf "%s.r%s.%s" "${base}" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+  cmake -S "${_pkgname}" -B build -G Ninja \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_INSTALL_PREFIX=/usr
+  cmake --build build
+}
+
+check() {
+  ctest --test-dir build --output-on-failure
+}
+
+package() {
+  DESTDIR="${pkgdir}" cmake --install build
+  install -Dm644 "${_pkgname}/LICENSE" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+}

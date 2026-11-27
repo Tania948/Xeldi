@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.tania948.Xeldi</id>
+  <name>Xeldi</name>
+  <summary>Pixel art 2D with voxel 3D building</summary>
+  <summary xml:lang="es">Pixel art 2D con construcción 3D en vóxeles</summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MIT</project_license>
+  <description>
+    <p>Xeldi combines a layer and onion-skin based pixel art workflow with a voxel and workplane 3D space,
+       so sprites and 3D pieces share the same pixel grid.</p>
+  </description>
+  <launchable type="desktop-id">io.github.tania948.Xeldi.desktop</launchable>
+  <url type="homepage">https://github.com/Tania948/xeldi</url>
+  <content_rating type="oars-1.1"/>
+  <releases>
+    <release version="0.1.0" date="2026-11-27"/>
+  </releases>
+</component>

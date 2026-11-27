@@ -1,0 +1,8 @@
+build*/
+*.tmp
+packaging/arch/src/
+packaging/arch/pkg/
+packaging/arch/xeldi/
+*.pkg.tar.*
+compile_commands.json
+.cache/

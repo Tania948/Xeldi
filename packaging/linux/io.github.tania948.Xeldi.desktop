@@ -1,0 +1,15 @@
+[Desktop Entry]
+Type=Application
+Name=Xeldi
+GenericName=Pixel Art Editor
+GenericName[es]=Editor de pixel art
+Comment=Pixel art 2D with voxel 3D building, onion skin and idle preview
+Comment[es]=Pixel art 2D con construcción 3D en vóxeles, onion skin y preview idle
+Exec=xeldi %f
+Icon=xeldi
+Terminal=false
+Categories=Graphics;2DGraphics;3DGraphics;RasterGraphics;Qt;
+Keywords=pixel;sprite;voxel;animation;aseprite;
+Keywords[es]=pixel;sprite;voxel;animación;dibujo;
+MimeType=application/x-xeldi;
+StartupWMClass=xeldi
